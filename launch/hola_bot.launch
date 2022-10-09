@@ -1,0 +1,10 @@
+<launch>
+  <include
+    file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find task1)/urdf/hola_bot.urdf -urdf -model hola_bot"
+    output="screen" />
+</launch>

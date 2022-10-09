@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--First version of this URDF was automatically created by SolidWorks to URDF Exporter!
+    as part of eYSIP 2022 
+    Originally created by Stephen Brawner (brawner@gmail.com) 
+    Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+    For more information, please see http://wiki.ros.org/sw_urdf_exporter 
+
+    This version of the URDF is made after a lot of simplification by the e-Yantra Team (Arjun Sadananda) -->
+
+<robot
+  name="hola_bot">
+
+  <!-- Chassis -->
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.49" />
+      <inertia
+        ixx="0.00199"
+        ixy="0"
+        ixz="0"
+        iyy="0.00199"
+        iyz="0"
+        izz="0.00395" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 1.57" />
+      <geometry>
+        <mesh
+          filename="package://task1/meshes/base_link.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.01"
+        rpy="0 0 1.57" />
+      <geometry>
+        <cylinder radius="0.15" length="0.005"/>
+      </geometry>
+    </collision>
+  </link>
+
+.
+.
+<!-- lot more stuff needs to go here -->
+<!-- Front Wheel -->
+
+  <!-- Front Wheel Link -->
+  <link
+    name="front_wheel">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.062" />
+      <inertia
+        ixx="0.000285"
+        ixy="0"
+        ixz="0"
+        iyy="0.0005198"
+        iyz="0"
+        izz="0.0002851" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://task1/meshes/wheel.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -.01 0"
+        rpy="1.57 0 0" />
+      <geometry>
+        <cylinder radius=".03" length="0.02"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Front Wheel Joint -->
+
+  <joint
+    name="front_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.17483 -0.0335"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_wheel" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="5"
+      velocity="5" />
+  </joint>
+.
+.
+</robot>
