@@ -106,6 +106,130 @@
       effort="5"
       velocity="5" />
   </joint>
+
+  <!-- left Wheel -->
+
+  <!-- left Wheel Link -->
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.062" />
+      <inertia
+        ixx="0.000285"
+        ixy="0"
+        ixz="0"
+        iyy="0.0005198"
+        iyz="0"
+        izz="0.0002851" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://task1/meshes/wheel.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -.01 0"
+        rpy="1.57 0 0" />
+      <geometry>
+        <cylinder radius=".03" length="0.02"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Front Wheel Joint -->
+
+  <joint
+    name="left_joint"
+    type="continuous">
+    <origin
+      xyz="-0.15154 -0.087275  -0.0335"
+      rpy="0 0 2.0944" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="5"
+      velocity="5" />
+  </joint>
+
+<!-- right Wheel -->
+
+  <!-- right Wheel Link -->
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.062" />
+      <inertia
+        ixx="0.000285"
+        ixy="0"
+        ixz="0"
+        iyy="0.0005198"
+        iyz="0"
+        izz="0.0002851" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://task1/meshes/wheel.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -.01 0"
+        rpy="1.57 0 0" />
+      <geometry>
+        <cylinder radius=".03" length="0.02"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Front Wheel Joint -->
+
+  <joint
+    name="right_joint"
+    type="continuous">
+    <origin
+      xyz="0.15154 -0.087275  -0.0335"
+      rpy="0 0 1.0472" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="5"
+      velocity="5" />
+  </joint>
+
+      <gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
 .
 .
 </robot>
