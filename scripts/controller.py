@@ -17,6 +17,7 @@ hola_x = 0
 hola_y = 0
 hola_theta = 0
 
+<<<<<<< HEAD
 
 def odometryCb(msg):
 	global hola_x, hola_y, hola_theta, data
@@ -25,6 +26,10 @@ def odometryCb(msg):
 	hola_y = msg.pose.pose.position.x
 	hola_theta = msg.pose.pose.orientation.w
 
+=======
+def odometryCb(msg):
+	global hola_x, hola_y, hola_theta
+>>>>>>> 8a6aee1663606d536da76792be1bfa95906ca8a8
 
 	# Write your code to take the msg and update the three variables
 
@@ -47,6 +52,7 @@ def main():
 	
 	# For maintaining control loop rate.
 	rate = rospy.Rate(100)
+<<<<<<< HEAD
 	vel_x = 1;
 	# vel_y = 1;
 	# vel_z = 1;
@@ -54,6 +60,8 @@ def main():
 	x_d = 0
 	y_d = 1
 	theta_d = 0 
+=======
+>>>>>>> 8a6aee1663606d536da76792be1bfa95906ca8a8
 
 	# Initialise variables that may be needed for the control loop
 	# For ex: x_d, y_d, theta_d (in **meters** and **radians**) for defining desired goal-pose.
